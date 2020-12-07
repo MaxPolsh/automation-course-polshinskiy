@@ -1,13 +1,22 @@
 package org.example.homework.hw3;
 
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class AllNumbers {
     public static void main(String[] args) {
 
-        for (int i = 50; i <= 177; i++) {
+        char array[] = new char[177];
+        Scanner input = new Scanner(System.in);
+        System.out.println("Insert array elements:");
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (char) input.nextInt();
+        }
 
-            System.out.println(i);
+        for (int i = 0; i < array.length; i++) {
+            if (i >= 50 && i <= 177) {
+                System.out.print(i);
+            }
         }
     }
 }
+
