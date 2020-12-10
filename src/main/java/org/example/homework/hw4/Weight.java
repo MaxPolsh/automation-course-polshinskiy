@@ -7,12 +7,10 @@ public class Weight {
     }
 
     public static double converterPoundsToKilograms(double pounds){
-        double kilograms = pounds / 2.205;
-        return kilograms;
+        return pounds / 2.205;
     }
 
     public static double converterKilogramsToPounds(double kilograms){
-        double pounds = kilograms * 2.205;
-        return pounds;
+        return kilograms * 2.205;
     }
 }

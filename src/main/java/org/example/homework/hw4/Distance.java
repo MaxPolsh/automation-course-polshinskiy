@@ -10,22 +10,18 @@ public class Distance {
     }
 
     public static double converterMetersToInches(double meters){
-        double inches = meters * 39.37;
-        return inches;
+        return meters * 39.37;
     }
 
     public static double converterInchesToMeters(double inches){
-        double meters = inches / 39.37;
-        return meters;
+        return inches / 39.37;
     }
 
     public static double converterMilesToKilometers(double miles){
-        double kilometers = miles * 1.609;
-        return kilometers;
+        return miles * 1.609;
     }
 
     public static double converterKilometersToMiles(double kilometers){
-        double miles = kilometers * 1.609;
-        return miles;
+        return kilometers * 1.609;
     }
 }

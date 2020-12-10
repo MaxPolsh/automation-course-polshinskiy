@@ -10,23 +10,19 @@ public class Temperature {
     }
 
     public static double converterCelsiusToKelvin(double celsius){
-        double kelvin = celsius + 273.15;
-        return kelvin;
+        return celsius + 273.15;
     }
 
     public static double converterKelvinToCelsius(double celsius){
-        double kelvin = celsius - 273.15;
-        return kelvin;
+        return celsius - 273.15;
     }
 
     public static double converterCelsiusToFahrenheit(double celsius){
-        double fahrenheit = (celsius * 9 / 5) + 32;
-        return fahrenheit;
+        return (celsius * 9 / 5) + 32;
     }
 
     public static double converterFahrenheitToCelsius(double fahrenheit){
-        double celsius = (fahrenheit - 32) * 5/9;
-        return celsius;
+        return (fahrenheit - 32) * 5/9;
     }
 }
 
