@@ -3,8 +3,24 @@ package org.example.homework.hw5;
 public class ValidationCode {
     public static void main(String[] args) {
         String code = "AX6BYU56UX6CV6BNT7NM 287430";
-        System.out.println(code.replace("56", "").replace("6", "").replace("7N", "N"));
-        System.out.println(code.substring(2, 3) + code.substring(6, 7) + "*" + code.substring(7, 8) + code.substring(10, 11) +
-        "*" + code.substring(13, 14) + code.substring(17, 18) +" = "+ code.substring(21, 27));
+        int str = 1;
+
+        String[] strings = code.split(" ");
+
+        String str1 = strings[0].replaceAll("\\D","");
+
+        int str2 = Integer.parseInt(strings[1]);
+
+        char[] chars = str1.toCharArray();
+
+        for (int i = 0; i < chars.length; i++) {
+
+            str = Integer.parseInt(chars[i] + "" + chars[i+1]) * str;
+
+            i = i + 1;
+
+        }
+       // boolean res =
+        System.out.println(str + "=" + str2);
     }
 }
