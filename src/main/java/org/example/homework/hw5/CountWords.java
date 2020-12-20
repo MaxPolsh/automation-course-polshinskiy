@@ -5,12 +5,8 @@ public class CountWords {
         String text = "six vector a fire xerox five";
         String[] words = text.split(" ");
 
-        int k = 0;
-        for (int i = 0; i < words.length; i++){
-                    k++;
-                }
 
-            System.out.println("Number of " + words.length + " letter elements:" + k);
+            System.out.println("Number of elements: " + words.length );
 
         }
 

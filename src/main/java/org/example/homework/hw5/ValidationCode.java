@@ -20,7 +20,6 @@ public class ValidationCode {
             i = i + 1;
 
         }
-       // boolean res =
-        System.out.println(str + "=" + str2);
+        System.out.println(str == str2);
     }
 }
