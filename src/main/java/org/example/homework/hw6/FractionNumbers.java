@@ -1,17 +1,23 @@
 package org.example.homework.hw6;
 
-import static org.example.homework.hw6.Fraction.*;
 
 public class FractionNumbers {
     public static void main(String[] args) {
 
-        System.out.println(sum(4, 5, 3, 4));
+            Fraction fr1 = new Fraction(4,5);
+            Fraction fr2 = new Fraction(3,4);
 
-        System.out.println(minus(4, 5, 3, 4));
+            Fraction fr3 = fr1.plus(fr2);
+            System.out.println(fr3.toString());
 
-        System.out.println(mult(4, 5, 3, 4));
+            fr3 = fr1.minus(fr2);
+            System.out.println(fr3.toString());
 
-        System.out.println(div(4, 5, 3, 4));
+            fr3 = fr1.mult(fr2);
+            System.out.println(fr3.toString());
+
+            fr3 = fr1.div(fr2);
+            System.out.println(fr3.toString());
 
     }
 }

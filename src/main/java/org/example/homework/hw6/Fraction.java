@@ -1,45 +1,68 @@
 package org.example.homework.hw6;
 
 public class Fraction {
-    int x;
+    int numer;
+    int denom;
 
-    int y;
-
-    public Fraction(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Fraction(int num, int den){
+        numer = num;
+        denom = den;
     }
 
+    public int getNumer(){
 
-    public String toString() {
-        return this.x + "/" + this.y;
+        return numer;
     }
 
-    public static Fraction sum(int x, int y, int num1, int num2) {
-        Fraction sum = new Fraction(x, y);
-        sum.x = (sum.x * num2) + (sum.y * num1);
-        sum.y = sum.y * num2;
-        return sum;
+    public int getDenom(){
+
+        return denom;
     }
 
-    public static Fraction minus(int x, int y, int num1, int num2) {
-        Fraction sum = new Fraction(x, y);
-        sum.x = (sum.x * num2) - (sum.y * num1);
-        sum.y = sum.y * num2;
-        return sum;
+    Fraction plus(Fraction x){
+
+        Fraction answer;
+        int num = (numer * x.getDenom()) + (denom * x.getNumer());
+        int den = denom * x.getDenom();
+        answer = new Fraction(num, den);
+
+        return answer;
     }
 
-    public static Fraction mult(int x, int y, int num1, int num2) {
-        Fraction mult = new Fraction(x,y);
-        mult.x = mult.x * num1;
-        mult.y = mult.y * num2;
-        return mult;
+    Fraction minus(Fraction x){
+
+        Fraction answer;
+        int num = (numer * x.getDenom()) - (denom * x.getNumer());
+        int den = denom * x.getDenom();
+        answer = new Fraction(num, den);
+
+        return answer;
     }
 
-    public static Fraction div(int x, int y, int num1, int num2) {
-        Fraction div = new Fraction(x,y);
-        div.x = div.x * num2;
-        div.y = div.y * num1;
-        return div;
+    Fraction mult(Fraction x){
+
+        Fraction answer;
+        int den = denom * x.getDenom();
+        int num = numer * x.getNumer();
+        answer = new Fraction(num, den);
+
+        return answer;
+    }
+
+    Fraction div(Fraction x){
+
+        Fraction answer;
+        int num = numer * x.getDenom();
+        int den = denom * x.getNumer();
+        answer = new Fraction(num, den);
+
+        return answer;
+    }
+
+    public String toString(){
+
+        return this.numer + "/" + this.denom;
     }
 }
+
+
