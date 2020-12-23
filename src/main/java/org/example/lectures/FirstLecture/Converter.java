@@ -1,4 +1,4 @@
-package org.example.lectures;
+package org.example.lectures.FirstLecture;
 
 public class Converter {
     public static void main(String[] args) {
