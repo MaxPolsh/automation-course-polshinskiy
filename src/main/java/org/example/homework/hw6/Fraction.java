@@ -1,5 +1,7 @@
 package org.example.homework.hw6;
 
+import java.util.Objects;
+
 public class Fraction {
     int numer;
     int denom;
@@ -57,6 +59,19 @@ public class Fraction {
         answer = new Fraction(num, den);
 
         return answer;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fraction fraction = (Fraction) o;
+        return numer == fraction.numer && denom == fraction.denom;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numer, denom);
     }
 
     public String toString(){

@@ -1,9 +1,27 @@
 package org.example.infrastructure;
 
 public class ConfigurationManager {
-    public static String getEnvironmentVariableOrDefault(String envVar, String defaulValue){
-        return System.getenv(envVar) != null && !System.getenv(envVar).isBlank() ?
-                System.getenv(envVar) : defaulValue;
+    private static ConfigurationManager instance;
+    private ConfigurationManager(){
 
     }
+    public static ConfigurationManager getInstance(){
+        if (instance == null)
+            instance = new ConfigurationManager();
+        return instance;
+    }
+
+    public String getTestEnv(){
+        return getEnvironmetVariableOrDefault("envVar", "defaulValue");
+    }
+
+    public String getTestBrowser(){
+        return getEnvironmetVariableOrDefault("envVar", "defaulValue");
+    }
+
+    private String getEnvironmetVariableOrDefault(String envVar, String defaulValue){
+        return System.getenv(envVar) != null && !System.getenv(envVar).isBlank() ?
+                System.getenv(envVar) : defaulValue;
+    }
 }
+
