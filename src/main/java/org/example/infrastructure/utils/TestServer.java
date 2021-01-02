@@ -1,4 +1,6 @@
-package org.example.infrastructure;
+package org.example.infrastructure.utils;
+
+import org.example.infrastructure.config.ConfigurationManager;
 
 public class TestServer {
     public static String getUrl(){

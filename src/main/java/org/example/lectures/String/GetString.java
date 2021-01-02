@@ -1,6 +1,6 @@
 package org.example.lectures.String;
 
-import org.example.infrastructure.ConfigurationManager;
+import org.example.infrastructure.config.ConfigurationManager;
 
 public class GetString {
     public static void main(String[] args) {
