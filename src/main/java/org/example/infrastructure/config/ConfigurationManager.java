@@ -1,4 +1,4 @@
-package org.example.infrastructure;
+package org.example.infrastructure.config;
 
 public class ConfigurationManager {
     private static ConfigurationManager instance;
@@ -17,6 +17,10 @@ public class ConfigurationManager {
 
     public String getTestBrowser(){
         return getEnvironmetVariableOrDefault("envVar", "defaulValue");
+    }
+
+    public String getTestLogger() {
+        return getEnvironmetVariableOrDefault("testLogger","std");
     }
 
     private String getEnvironmetVariableOrDefault(String envVar, String defaulValue){

@@ -1,11 +1,11 @@
 package org.example.lectures.OOP;
 
-import org.example.infrastructure.TestLogger;
+import org.example.infrastructure.logger.StdTestLogger;
 
 public class TestApp {
     public static void main(String[] args) {
 
-        TestLogger logger = new TestLogger();
+        StdTestLogger logger = new StdTestLogger();
 
         logger.log("Open browser");
         logger.log("Open web site");

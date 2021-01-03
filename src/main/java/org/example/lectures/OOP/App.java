@@ -1,12 +1,12 @@
 package org.example.lectures.OOP;
 
-import org.example.infrastructure.TestLogger;
-import org.example.infrastructure.TestServer;
+import org.example.infrastructure.logger.StdTestLogger;
+import org.example.infrastructure.utils.TestServer;
 import org.example.infrastructure.WebDriverManager;
 
 public class App {
     public static void main(String[] args) {
-        TestLogger logger = new TestLogger();
+        StdTestLogger logger = new StdTestLogger();
 
         logger.log("Start browser");
         WebDriverManager wdm = new WebDriverManager();
