@@ -27,5 +27,9 @@ public class ConfigurationManager {
         return System.getenv(envVar) != null && !System.getenv(envVar).isBlank() ?
                 System.getenv(envVar) : defaulValue;
     }
+
+    public String getMobilePlatform() {
+        return getEnvironmetVariableOrDefault("mobilePlatform","iOS");
+    }
 }
 
