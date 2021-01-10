@@ -7,13 +7,22 @@ public abstract class DefaultWebDriverManager implements WebDriverManager {
     @Override
     public String getBrowser() {
 
-        switch (ConfigurationManager.getInstance().getTestBrowser()) {
+        switch (ConfigurationManager.getInstance().getTestEnv()) {
             case "local":
-                return "Google Chrome";
+                LocalWebDriverFactory localWebDriverFactory = new LocalWebDriverFactory();
+
+                return localWebDriverFactory.create();
+
             case "remote":
-                return "Mozilla Firefox";
+                RemoteWebDriverFactory remoteWebDriverFactory = new RemoteWebDriverFactory();
+
+                return remoteWebDriverFactory.create();
+
             case "cloud":
-                return "Microsoft Edge";
+                CloudWebDriverFactory cloudWebDriverFactory = new CloudWebDriverFactory();
+
+                return cloudWebDriverFactory.create();
+
             default:
                 return "";
         }
