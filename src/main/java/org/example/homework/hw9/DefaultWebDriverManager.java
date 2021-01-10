@@ -6,6 +6,7 @@ public abstract class DefaultWebDriverManager implements WebDriverManager {
 
     @Override
     public String getBrowser() {
+
         switch (ConfigurationManager.getInstance().getTestBrowser()) {
             case "local":
                 return "Google Chrome";
