@@ -1,13 +1,32 @@
 package org.example.homework.hw9;
 
 
+import org.example.infrastructure.config.ConfigurationManager;
+
 public class RemoteWebDriverFactory implements WebDriverFactory{
 
     @Override
     public String create() {
 
-        String browser = "Mozilla Firefox";
+        switch(ConfigurationManager.getInstance().getTestBrowser()) {
 
-        return browser;
+            case "chrome":
+
+                return "REMOTE Google Chrome";
+
+            case "firefox":
+
+                return "REMOTE Mozilla Firefox";
+
+            case "edge":
+
+                return "REMOTE Microsoft Edge";
+
+            default:
+
+                return "";
+
+
+        }
     }
 }

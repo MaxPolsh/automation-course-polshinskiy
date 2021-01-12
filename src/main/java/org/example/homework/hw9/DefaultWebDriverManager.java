@@ -5,27 +5,25 @@ import org.example.infrastructure.config.ConfigurationManager;
 public abstract class DefaultWebDriverManager implements WebDriverManager {
 
     @Override
-    public String getBrowser() {
+    public String getWebDriver() {
 
-        switch (ConfigurationManager.getInstance().getTestEnv()) {
-            case "local":
-                LocalWebDriverFactory localWebDriverFactory = new LocalWebDriverFactory();
+        WebDriverFactory factory;
 
-                return localWebDriverFactory.create();
-
+        switch (ConfigurationManager.getInstance().getRunOn()) {
             case "remote":
-                RemoteWebDriverFactory remoteWebDriverFactory = new RemoteWebDriverFactory();
-
-                return remoteWebDriverFactory.create();
-
+                factory = new RemoteWebDriverFactory();
+                break;
             case "cloud":
-                CloudWebDriverFactory cloudWebDriverFactory = new CloudWebDriverFactory();
-
-                return cloudWebDriverFactory.create();
-
+                factory = new CloudWebDriverFactory();
+                break;
+            case "local":
             default:
-                return "";
+                factory = new LocalWebDriverFactory();
+                break;
+
         }
+        return factory.create();
+
     }
 
     @Override

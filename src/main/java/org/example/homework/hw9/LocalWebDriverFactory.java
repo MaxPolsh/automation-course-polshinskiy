@@ -1,13 +1,31 @@
 package org.example.homework.hw9;
 
 
+import org.example.infrastructure.config.ConfigurationManager;
+
 public class LocalWebDriverFactory implements WebDriverFactory{
 
     @Override
     public String create() {
-        String browser = "Google Chrome";
+        switch(ConfigurationManager.getInstance().getTestBrowser()) {
 
-        return browser;
+            case "chrome":
 
+                return "LOCAL Google Chrome";
+
+            case "firefox":
+
+                return "LOCAL Mozilla Firefox";
+
+            case "edge":
+
+                return "LOCAL Microsoft Edge";
+
+            default:
+
+                return "";
+
+
+        }
     }
 }

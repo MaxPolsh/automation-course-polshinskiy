@@ -1,7 +1,7 @@
 package org.example.homework.hw9;
 
 public interface WebDriverManager {
-    String getBrowser();
+    String getWebDriver();
 
-    void destroyBrowser(String browser);
+    void destroyBrowser(String webDriver);
 }
