@@ -11,6 +11,8 @@ public class ConfigurationManager {
         return instance;
     }
 
+    public String getRunOn() {return getEnvironmetVariableOrDefault("runOn", "local");}
+
     public String getTestEnv(){
         return getEnvironmetVariableOrDefault("envVar", "defaulValue");
     }
