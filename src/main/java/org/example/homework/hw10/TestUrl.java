@@ -1,69 +1,104 @@
 package org.example.homework.hw10;
 
 public class TestUrl {
-    private String protocol;
-    private String domain;
-    private String port;
-    private String path;
-    private String param;
-    private String key;
-    private String value;
 
+    private String protocol = "";
+    private String domain = "";
+    private String port = "";
+    private String path = "";
+    private String params = "";
 
-    public static class Builder{
-        private TestUrl url;
+    private TestUrl() {
+    }
+
+    public String getProtocol() {
+        return protocol;
+    }
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public String getPort() {
+        return port;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public String getParams() {
+        return params;
+    }
+
+    public static class Builder {
+
+        private TestUrl testUrl;
 
         public Builder() {
-            url = new TestUrl();
+            testUrl = new TestUrl();
         }
 
         public Builder withProtocol(String protocol) {
-            url.protocol = protocol;
+            testUrl.protocol = protocol;
             return this;
         }
 
         public Builder withDomain(String domain) {
-            url.domain = domain;
+            testUrl.domain = domain;
             return this;
         }
 
         public Builder withPort(String port) {
-            url.port = port;
+            testUrl.port = port;
             return this;
         }
 
         public Builder withPath(String path) {
-            url.path = path;
+            testUrl.path = path;
             return this;
         }
 
         public Builder withParam(String param) {
-            url.param = param;
+            testUrl.params += param + "&";
             return this;
         }
 
         public Builder withParam(String key, String value) {
-            url.key = key;
-            url.value = value;
+            testUrl.params += key + "=" + value + "&";
             return this;
         }
 
-        public TestUrl build() {
+        public TestUrl getTestUrl() {
+            return testUrl;
+        }
+
+        public String build() {
+            String url = "";
+
+            if (!testUrl.protocol.endsWith("://"))
+                url += testUrl.protocol + "://";
+
+            url += testUrl.domain;
+
+            if (!testUrl.port.isEmpty() && !testUrl.port.startsWith(":"))
+                url += ":" + testUrl.port;
+            else
+                url += testUrl.port;
+
+            if (!testUrl.path.isEmpty() && !testUrl.path.startsWith("/"))
+                url += "/" + testUrl.path;
+            else
+                url += testUrl.path;
+
+            if (!testUrl.params.isEmpty() && !testUrl.params.startsWith("?"))
+                url += "?" + testUrl.params;
+            else
+                url += testUrl.params;
+
+
             return url;
         }
-    }
-
-    public static void main(String[] args) {
-        TestUrl url = new TestUrl.Builder()
-                .withProtocol("protocol")
-                .withDomain("domain")
-                .withPort("port")
-                .withPath("path")
-                .withParam("param")
-                .withParam("key", "value")
-                .build();
-
-        System.out.println(url);
     }
 }
 
