@@ -2,21 +2,23 @@ package org.example.infrastructure.utils;
 
 import java.util.Random;
 
+import static org.example.infrastructure.utils.StringUtils.Mode.*;
+
 public class StringUtils {
 
-    public static String randomString(String mode, int length){
+    public static String randomString(Mode mode, int length){
         String symbols;
         switch (mode){
-            case "alpha":
+            case ALPHA:
                 symbols = "abcdefghijklomnpqrstuvwxyz";
                 break;
-            case "numeric":
+            case NUMERIC:
                 symbols = "1234567890";
                 break;
-            case "alphanumeric":
+            case ALPHANUMERIC:
                 symbols = "abcdefghijklomnpqrstuvwxyz1234567890";
                 break;
-            case "hex":
+            case HEX:
                 symbols = "1234567890ABCDEF";
             default:
                 symbols = "";
@@ -27,6 +29,10 @@ public class StringUtils {
 
         }
         return randomStr;
+        }
+
+        public enum Mode {
+        ALPHA, NUMERIC, ALPHANUMERIC, HEX
         }
     }
 
