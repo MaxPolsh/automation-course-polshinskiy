@@ -1,9 +1,9 @@
-package org.example.homework.hw9;
+package org.example.infrastructure.wdm.factories;
 
 
 import org.example.infrastructure.config.ConfigurationManager;
 
-public class CloudWebDriverFactory implements WebDriverFactory{
+public class CloudWebDriverFactory implements WebDriverFactory {
 
     @Override
     public String create() {

@@ -3,7 +3,7 @@ package org.example.infrastructure.base;
 import org.example.infrastructure.config.ConfigurationManager;
 import org.example.infrastructure.logger.FileTestLogger;
 import org.example.infrastructure.logger.StdTestLogger;
-import org.example.infrastructure.WebDriverManager;
+import org.example.homework.hw9.WebDriverManager;
 import org.example.infrastructure.logger.TestLogger;
 
 public abstract class TestBase {
