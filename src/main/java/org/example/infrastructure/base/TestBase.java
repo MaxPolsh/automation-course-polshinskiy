@@ -5,20 +5,21 @@ import org.example.infrastructure.logger.FileTestLogger;
 import org.example.infrastructure.logger.StdTestLogger;
 import org.example.homework.hw9.WebDriverManager;
 import org.example.infrastructure.logger.TestLogger;
+import org.example.infrastructure.wdm.DefaultWebDriverManager;
 
 public abstract class TestBase {
     protected TestLogger logger;
     protected String webDriver;
 
-    private WebDriverManager wdm;
+    private DefaultWebDriverManager wdm;
 
     public void setUp(){
         // new test logger
         logger = getLogger();
 
         //start browser
-        wdm = new WebDriverManager();
-        webDriver = wdm.getBrowser();
+        wdm = new DefaultWebDriverManager();
+        webDriver = wdm.getWebDriver();
 
         logger.log("Open testing website");
 

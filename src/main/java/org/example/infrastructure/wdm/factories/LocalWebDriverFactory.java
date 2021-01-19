@@ -2,30 +2,29 @@ package org.example.infrastructure.wdm.factories;
 
 
 import org.example.infrastructure.config.ConfigurationManager;
+import org.example.infrastructure.wdm.enums.WebDriverType;
 
 public class LocalWebDriverFactory implements WebDriverFactory {
 
     @Override
     public String create() {
-        switch(ConfigurationManager.getInstance().getTestBrowser()) {
+        switch(WebDriverType.valueOf(ConfigurationManager.getInstance().getTestBrowser().toUpperCase())) {
 
-            case "chrome":
+            case CHROME:
 
                 return "LOCAL Google Chrome";
 
-            case "firefox":
+            case FIREFOX:
 
                 return "LOCAL Mozilla Firefox";
 
-            case "edge":
+            case EDGE:
 
                 return "LOCAL Microsoft Edge";
 
             default:
 
                 return "";
-
-
         }
     }
 }

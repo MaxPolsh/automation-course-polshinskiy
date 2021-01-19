@@ -1,5 +1,5 @@
 package org.example.infrastructure.wdm.enums;
 
-public enum BrowserType {
+public enum WebDriverType {
     CHROME, FIREFOX, EDGE
 }

@@ -1,26 +1,29 @@
 package org.example.infrastructure.wdm;
 
 import org.example.infrastructure.config.ConfigurationManager;
+import org.example.infrastructure.wdm.enums.RunOn;
 import org.example.infrastructure.wdm.factories.CloudWebDriverFactory;
 import org.example.infrastructure.wdm.factories.LocalWebDriverFactory;
 import org.example.infrastructure.wdm.factories.RemoteWebDriverFactory;
 import org.example.infrastructure.wdm.factories.WebDriverFactory;
 
-public abstract class DefaultWebDriverManager implements WebDriverManager {
+import java.util.Locale;
+
+public class DefaultWebDriverManager implements WebDriverManager {
 
     @Override
     public String getWebDriver() {
 
         WebDriverFactory factory;
 
-        switch (ConfigurationManager.getInstance().getRunOn()) {
-            case "remote":
+        switch (RunOn.valueOf(ConfigurationManager.getInstance().getRunOn().toUpperCase())) {
+            case REMOTE:
                 factory = new RemoteWebDriverFactory();
                 break;
-            case "cloud":
+            case CLOUD:
                 factory = new CloudWebDriverFactory();
                 break;
-            case "local":
+            case LOCAL:
             default:
                 factory = new LocalWebDriverFactory();
                 break;

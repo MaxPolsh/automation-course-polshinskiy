@@ -2,23 +2,24 @@ package org.example.infrastructure.wdm.factories;
 
 
 import org.example.infrastructure.config.ConfigurationManager;
+import org.example.infrastructure.wdm.enums.WebDriverType;
 
 public class RemoteWebDriverFactory implements WebDriverFactory {
 
     @Override
     public String create() {
 
-        switch(ConfigurationManager.getInstance().getTestBrowser()) {
+        switch(WebDriverType.valueOf(ConfigurationManager.getInstance().getTestBrowser().toUpperCase())) {
 
-            case "chrome":
+            case CHROME:
 
                 return "REMOTE Google Chrome";
 
-            case "firefox":
+            case FIREFOX:
 
                 return "REMOTE Mozilla Firefox";
 
-            case "edge":
+            case EDGE:
 
                 return "REMOTE Microsoft Edge";
 
