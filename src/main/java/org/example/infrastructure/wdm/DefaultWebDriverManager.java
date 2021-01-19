@@ -7,7 +7,6 @@ import org.example.infrastructure.wdm.factories.LocalWebDriverFactory;
 import org.example.infrastructure.wdm.factories.RemoteWebDriverFactory;
 import org.example.infrastructure.wdm.factories.WebDriverFactory;
 
-import java.util.Locale;
 
 public class DefaultWebDriverManager implements WebDriverManager {
 
