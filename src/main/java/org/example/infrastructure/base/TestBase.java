@@ -30,7 +30,7 @@ public abstract class TestBase {
         afterTest();
 
         //close browser
-        wdm.destroyBrowser(webDriver);
+        wdm.destroyWebDriver(webDriver);
 
 
     }

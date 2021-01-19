@@ -24,6 +24,6 @@ public class App {
         logger.log("check");
 
         logger.log("Close browser");
-        wdm.destroyBrowser(testBR);
+        wdm.destroyWebDriver(testBR);
     }
 }
