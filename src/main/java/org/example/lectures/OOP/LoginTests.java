@@ -1,6 +1,7 @@
 package org.example.lectures.OOP;
 
 import org.example.infrastructure.base.TestBase;
+import org.example.infrastructure.data.User;
 
 public class LoginTests extends TestBase {
     @Override
@@ -9,8 +10,14 @@ public class LoginTests extends TestBase {
     }
 
     public void testIncorrectLogin(){
+        User user = userData.findUserByUsername("test7");
+
         logger.log("Enter incorrect login");
+        System.out.println(user.getEmail());
+
         logger.log("Enter password");
+        System.out.println(user.getPassword());
+
         logger.log("Click login button");
         logger.log("Check error message");
 
