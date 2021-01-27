@@ -1,6 +1,7 @@
 package org.example.infrastructure.data;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,11 +17,12 @@ public class FileUserDataMapper extends AbstractUserDataMapper {
             String line = "";
             while ((line = br.readLine()) != null){
 
-                List<String> parts = Arrays.asList(line.split(","));
+                String[] parts = line.split(",");
 
-                for (int i = 0; i < users.length; i++) {
-                    if (users[i] == null) {
-                        users[i] = new User(parts.get(0), parts.get(1), parts.get(2), parts.get(3));
+                for (int i = 0; i < users.size(); i++) {
+                    if (users == null) {
+                        User u = new User(parts[0],parts[1], parts[2], parts[3]);
+                        users.add(i,u);
                         break;
                     }
                 }
