@@ -1,8 +1,11 @@
 package org.example.infrastructure.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AbstractUserDataMapper {
 
-    protected User[] users = new User[15];
+    protected List<User> users = new ArrayList<>(15);
 
     public User findUserByEmail(String email) {
         for (User u: users) {
@@ -22,7 +25,7 @@ public class AbstractUserDataMapper {
         throw  new UserNotFoundException("User with username [" + username + "] was not found");
     }
 
-    public User[] getAll() {
+    public List<User> getAll() {
         return users;
     }
 
