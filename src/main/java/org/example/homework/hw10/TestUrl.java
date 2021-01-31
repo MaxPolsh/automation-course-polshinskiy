@@ -1,12 +1,14 @@
 package org.example.homework.hw10;
 
+import java.util.HashMap;
+
 public class TestUrl {
 
     private String protocol = "";
     private String domain = "";
     private String port = "";
     private String path = "";
-    private String params = "";
+    private HashMap<String, String> params = new HashMap<String, String>();
 
     private TestUrl() {
     }
@@ -27,7 +29,7 @@ public class TestUrl {
         return path;
     }
 
-    public String getParams() {
+    public HashMap<String, String> getParams() {
         return params;
     }
 
@@ -60,12 +62,18 @@ public class TestUrl {
         }
 
         public Builder withParam(String param) {
-            testUrl.params += param + "&";
+            testUrl.params.put(param + "&","");
             return this;
         }
 
         public Builder withParam(String key, String value) {
-            testUrl.params += key + "=" + value + "&";
+            testUrl.params.put(key + "=", value + "&");
+            return this;
+        }
+
+        public Builder withParams(HashMap<String, String> params) {
+            HashMap<String, String> values = new HashMap<String, String>();
+            testUrl.params.putAll(values);
             return this;
         }
 
@@ -91,11 +99,10 @@ public class TestUrl {
             else
                 url += testUrl.path;
 
-            if (!testUrl.params.isEmpty() && !testUrl.params.startsWith("?"))
+            if (!testUrl.params.isEmpty() && !testUrl.params.containsValue("?"))
                 url += "?" + testUrl.params;
             else
                 url += testUrl.params;
-
 
             return url;
         }
