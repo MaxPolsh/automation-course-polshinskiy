@@ -3,7 +3,7 @@ package org.example.infrastructure.data;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AbstractUserDataMapper {
+public class AbstractUserDataMapper implements UserDataMapper{
 
     protected List<User> users = new ArrayList<>(15);
 
@@ -24,7 +24,7 @@ public class AbstractUserDataMapper {
         }
         throw  new UserNotFoundException("User with username [" + username + "] was not found");
     }
-
+    @Override
     public List<User> getAll() {
         return users;
     }
