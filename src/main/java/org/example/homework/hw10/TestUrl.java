@@ -1,12 +1,15 @@
 package org.example.homework.hw10;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TestUrl {
 
     private String protocol = "";
     private String domain = "";
     private String port = "";
     private String path = "";
-    private String params = "";
+    private Map<String, String> params = new HashMap();
 
     private TestUrl() {
     }
@@ -27,7 +30,7 @@ public class TestUrl {
         return path;
     }
 
-    public String getParams() {
+    public Map <String, String> getParams() {
         return params;
     }
 
@@ -60,12 +63,17 @@ public class TestUrl {
         }
 
         public Builder withParam(String param) {
-            testUrl.params += param + "&";
+            testUrl.params.put(param, "");
             return this;
         }
 
         public Builder withParam(String key, String value) {
-            testUrl.params += key + "=" + value + "&";
+            testUrl.params.put(key, value);
+            return this;
+        }
+
+        public Builder withParams(Map<String, String> params) {
+            testUrl.params.putAll(params);
             return this;
         }
 
@@ -91,10 +99,24 @@ public class TestUrl {
             else
                 url += testUrl.path;
 
-            if (!testUrl.params.isEmpty() && !testUrl.params.startsWith("?"))
-                url += "?" + testUrl.params;
-            else
-                url += testUrl.params;
+
+            if (!testUrl.params.isEmpty()){
+
+                url += "?";
+
+                for (Map.Entry<String, String> entry: testUrl.params.entrySet()){
+
+                    if ( entry.getValue().isBlank()){
+
+                        url += entry.getKey() + "&";
+
+                    } else {
+
+                        url += entry.getKey() + "=" + entry.getValue() + "&";
+                    }
+
+                }
+            }
 
 
             return url;
