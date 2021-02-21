@@ -1,4 +1,4 @@
-package org.example;
+package org.example.infrastructure.data;
 
 public class UserNotFoundException extends RuntimeException{
     public UserNotFoundException(String message) {

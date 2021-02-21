@@ -1,7 +1,7 @@
 package org.example.infrastructure.base;
 
 import org.example.infrastructure.config.ConfigurationManager;
-import org.example.FileUserDataMapper;
+import org.example.infrastructure.data.FileUserDataMapper;
 import org.example.infrastructure.logger.FileTestLogger;
 import org.example.infrastructure.logger.StdTestLogger;
 import org.example.infrastructure.logger.TestLogger;

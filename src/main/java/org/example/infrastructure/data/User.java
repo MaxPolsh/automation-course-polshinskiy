@@ -1,4 +1,4 @@
-package org.example;
+package org.example.infrastructure.data;
 
 import java.util.Objects;
 

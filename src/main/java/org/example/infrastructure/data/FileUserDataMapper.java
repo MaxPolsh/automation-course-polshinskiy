@@ -1,4 +1,4 @@
-package org.example;
+package org.example.infrastructure.data;
 
 import java.io.*;
 
@@ -6,7 +6,7 @@ public class FileUserDataMapper extends AbstractUserDataMapper {
 
 
     public FileUserDataMapper(String filename) {
-        File file = new File("users.txt");
+        File file = new File(filename);
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));

@@ -1,9 +1,9 @@
-package org.example;
+package org.example.infrastructure.data;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AbstractUserDataMapper implements UserDataMapper{
+public class AbstractUserDataMapper implements UserDataMapper {
 
     protected List<User> users = new ArrayList<>(15);
 
