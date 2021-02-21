@@ -1,7 +1,7 @@
 package org.example.lectures.OOP;
 
 import org.example.infrastructure.base.TestBase;
-import org.example.infrastructure.data.User;
+import org.example.User;
 
 public class LoginTests extends TestBase {
     @Override
