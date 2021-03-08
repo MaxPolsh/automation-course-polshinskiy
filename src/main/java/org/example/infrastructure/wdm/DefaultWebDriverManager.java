@@ -6,12 +6,13 @@ import org.example.infrastructure.wdm.factories.CloudWebDriverFactory;
 import org.example.infrastructure.wdm.factories.LocalWebDriverFactory;
 import org.example.infrastructure.wdm.factories.RemoteWebDriverFactory;
 import org.example.infrastructure.wdm.factories.WebDriverFactory;
+import org.openqa.selenium.WebDriver;
 
 
 public class DefaultWebDriverManager implements WebDriverManager {
 
     @Override
-    public String getWebDriver() {
+    public WebDriver getWebDriver() {
 
         WebDriverFactory factory;
 
@@ -26,14 +27,13 @@ public class DefaultWebDriverManager implements WebDriverManager {
             default:
                 factory = new LocalWebDriverFactory();
                 break;
-
         }
-        return factory.create();
 
+        return factory.create();
     }
 
     @Override
-    public void destroyWebDriver(String webDriver) {
+    public void destroyWebDriver(WebDriver webDriver) {
         if (webDriver != null)
             System.out.println("Closing browser:" + webDriver);
     }

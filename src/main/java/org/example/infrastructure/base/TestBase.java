@@ -6,10 +6,11 @@ import org.example.infrastructure.logger.FileTestLogger;
 import org.example.infrastructure.logger.StdTestLogger;
 import org.example.infrastructure.logger.TestLogger;
 import org.example.infrastructure.wdm.DefaultWebDriverManager;
+import org.openqa.selenium.WebDriver;
 
 public abstract class TestBase {
     protected TestLogger logger;
-    protected String webDriver;
+    protected WebDriver webDriver;
 
     protected FileUserDataMapper userData;
 

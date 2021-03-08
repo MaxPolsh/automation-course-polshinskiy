@@ -1,7 +1,9 @@
 package org.example.infrastructure.wdm;
 
-public interface WebDriverManager {
-    String getWebDriver();
+import org.openqa.selenium.WebDriver;
 
-    void destroyWebDriver(String webDriver);
+public interface WebDriverManager {
+    WebDriver getWebDriver();
+
+    void destroyWebDriver(WebDriver webDriver);
 }
