@@ -2,10 +2,12 @@ package org.example.website;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -16,19 +18,15 @@ public class LoginTests {
     @Test
     public void emptyFieldsTest() {
         WebDriver webDriver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(webDriver,30);
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+
         webDriver.get("http://polshinsky.iblogger.org");
 
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement metaBlock = webDriver.findElement(By.id("meta-2"));
+        WebElement metaBlock = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("meta-2")));
         List<WebElement> links = metaBlock.findElements(By.tagName("a"));
 
-        Actions actions = new Actions(webDriver);
-        actions.moveToElement(metaBlock).perform();
+        js.executeScript("arguments[0].scrollIntoView()",metaBlock);
 
         for (WebElement link: links){
             if (link.getText().contains("Войти")){
@@ -47,13 +45,8 @@ public class LoginTests {
         passField.clear();
         passField.sendKeys("");
 
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("wp-submit")));
         webDriver.findElement(By.id("wp-submit")).click();
-
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
         WebElement errorEl = webDriver.findElement(By.id("login_error"));
 
@@ -65,19 +58,15 @@ public class LoginTests {
     @Test
     public void emptyLoginTest() {
         WebDriver webDriver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(webDriver,30);
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+
         webDriver.get("http://polshinsky.iblogger.org");
 
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement metaBlock = webDriver.findElement(By.id("meta-2"));
+        WebElement metaBlock = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("meta-2")));
         List<WebElement> links = metaBlock.findElements(By.tagName("a"));
 
-        Actions actions = new Actions(webDriver);
-        actions.moveToElement(metaBlock).perform();
+        js.executeScript("arguments[0].scrollIntoView()",metaBlock);
 
         for (WebElement link: links){
             if (link.getText().contains("Войти")){
@@ -97,24 +86,12 @@ public class LoginTests {
 
         for (Character c:"admin".toCharArray()){
             passField.sendKeys("" + c);
-
-            try{
-                Thread.sleep(300);
-            }
-
-            catch  (Exception e){
-                e.printStackTrace();
-            }
         }
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("wp-submit")));
         webDriver.findElement(By.id("wp-submit")).click();
 
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement errorEl = webDriver.findElement(By.id("login_error"));
+        WebElement errorEl = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("login_error")));
 
         assertTrue("Incorrect error", errorEl.getText().contains("ОШИБКА"));
 
@@ -124,19 +101,15 @@ public class LoginTests {
     @Test
     public void emptyPassTest() {
         WebDriver webDriver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(webDriver,30);
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+
         webDriver.get("http://polshinsky.iblogger.org");
 
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement metaBlock = webDriver.findElement(By.id("meta-2"));
+        WebElement metaBlock = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("meta-2")));
         List<WebElement> links = metaBlock.findElements(By.tagName("a"));
 
-        Actions actions = new Actions(webDriver);
-        actions.moveToElement(metaBlock).perform();
+        js.executeScript("arguments[0].scrollIntoView()",metaBlock);
 
         for (WebElement link: links){
             if (link.getText().contains("Войти")){
@@ -157,13 +130,7 @@ public class LoginTests {
 
         webDriver.findElement(By.id("wp-submit")).click();
 
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement errorEl = webDriver.findElement(By.id("login_error"));
+        WebElement errorEl = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("login_error")));
 
         assertTrue("Incorrect error", errorEl.getText().contains("ОШИБКА"));
 
@@ -173,19 +140,15 @@ public class LoginTests {
     @Test
     public void incorrectPassTest() {
         WebDriver webDriver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(webDriver,30);
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+
         webDriver.get("http://polshinsky.iblogger.org");
 
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement metaBlock = webDriver.findElement(By.id("meta-2"));
+        WebElement metaBlock = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("meta-2")));
         List<WebElement> links = metaBlock.findElements(By.tagName("a"));
 
-        Actions actions = new Actions(webDriver);
-        actions.moveToElement(metaBlock).perform();
+        js.executeScript("arguments[0].scrollIntoView()",metaBlock);
 
         for (WebElement link : links) {
             if (link.getText().contains("Войти")) {
@@ -205,22 +168,12 @@ public class LoginTests {
 
         for (Character c : "admin".toCharArray()) {
             passField.sendKeys("" + c);
-
-            try {
-                Thread.sleep(300);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("wp-submit")));
         webDriver.findElement(By.id("wp-submit")).click();
 
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement errorEl = webDriver.findElement(By.id("login_error"));
+        WebElement errorEl = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("login_error")));
 
         assertTrue("Incorrect error", errorEl.getText().contains("ОШИБКА"));
 
@@ -230,19 +183,15 @@ public class LoginTests {
     @Test
     public void correctLogin() {
         WebDriver webDriver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(webDriver,30);
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+
         webDriver.get("http://polshinsky.iblogger.org");
 
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement metaBlock = webDriver.findElement(By.id("meta-2"));
+        WebElement metaBlock = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("meta-2")));
         List<WebElement> links = metaBlock.findElements(By.tagName("a"));
 
-        Actions actions = new Actions(webDriver);
-        actions.moveToElement(metaBlock).perform();
+        js.executeScript("arguments[0].scrollIntoView()",metaBlock);
 
         for (WebElement link: links){
             if (link.getText().contains("Войти")){
@@ -262,24 +211,12 @@ public class LoginTests {
 
         for (Character c:"24Killer".toCharArray()){
             passField.sendKeys("" + c);
-
-            try{
-                Thread.sleep(300);
-            }
-
-            catch  (Exception e){
-                e.printStackTrace();
-            }
         }
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("wp-submit")));
         webDriver.findElement(By.id("wp-submit")).click();
 
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement menuEl = webDriver.findElement(By.id("wpcontent"));
+        WebElement menuEl = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("wpcontent")));
 
         assertTrue("Enter success", menuEl.getText().contains("Профиль"));
 
