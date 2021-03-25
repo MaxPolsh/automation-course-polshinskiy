@@ -14,11 +14,11 @@ public class ConfigurationManager {
     public String getRunOn() {return getEnvironmetVariableOrDefault("runOn", "local");}
 
     public String getTestEnv(){
-        return getEnvironmetVariableOrDefault("envVar", "defaulValue");
+        return getEnvironmetVariableOrDefault("envVar", "production");
     }
 
     public String getTestBrowser(){
-        return getEnvironmetVariableOrDefault("envVar", "defaulValue");
+        return getEnvironmetVariableOrDefault("envVar", "chrome");
     }
 
     public String getTestLogger() {
