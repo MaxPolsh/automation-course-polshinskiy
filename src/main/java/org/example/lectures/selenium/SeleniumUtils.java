@@ -27,7 +27,7 @@ public class SeleniumUtils {
 
             if (webDriver.getTitle().equals(title)) {
                 return;
-            }
+                                                                                                                }
         }
     }
 
